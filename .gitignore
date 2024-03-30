@@ -10,3 +10,5 @@ wheels/
 .venv
 
 data/*
+lightning_logs/*
+onnx/*
