@@ -1,38 +1,26 @@
-[project]
+[tool.poetry]
 name = "create-img-clf"
 version = "0.1.0"
-description = "Add your description here"
-authors = [
-    { name = "marumarukun", email = "cheriera.0310@gmail.com" }
-]
-dependencies = [
-    "ipykernel>=6.29.4",
-    "Pillow>=10.2.0",
-    "torch>=2.2.2",
-    "lightning>=2.2.1",
-    "torchvision>=0.17.2",
-    "onnx>=1.16.0",
-    "onnxruntime>=1.17.1",
-    "matplotlib>=3.7.5",
-    "timm>=0.9.16",
-    "onnxsim>=0.4.36",
-]
+description = ""
+authors = ["marumarukun"]
 readme = "README.md"
-requires-python = ">= 3.8"
 
-[project.scripts]
-hello = "create_img_clf:hello"
+[tool.poetry.dependencies]
+python = ">=3.10, <3.11"
+ipykernel = "^6.29.4"
+torch = [{ version = ">=1.12+cu116", markers = "sys_platform == 'win32'" },
+         { version = "^2.2.2", markers = "sys_platform == 'darwin'" }]
+torchvision = [{ version = ">=0.13.0+cu116", markers = "sys_platform == 'win32'" },
+               { version = "^0.17.2", markers = "sys_platform == 'darwin'" }]
+pillow = "^10.2.0"
+lightning = "^2.2.1"
+onnx = "^1.16.0"
+onnxruntime = "^1.17.1"
+matplotlib = "^3.8.3"
+timm = "^0.9.16"
+onnxsim = "^0.4.36"
+
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/create_img_clf"]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
